@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--btn-focus-scale: 0.9;
+}
+
+.btn {
+	animation: none;
+}
+
+.btn:active {
+	transition: transform 0.1s !important;
+}
+
+.cl-card.🔒️ {
+  height: 45rem;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: none;
+}
+
+.cl-navbar.🔒️ {
+	display: none;
+}
