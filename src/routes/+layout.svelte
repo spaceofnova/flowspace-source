@@ -13,9 +13,10 @@
 	//@ts-ignore
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	//@ts-ignore
-	import { Analytics } from "@vercel/analytics/svelte";
+	import { inject } from '@vercel/analytics'
 
 	injectSpeedInsights();
+	inject();
 
 	export let data;
 </script>
