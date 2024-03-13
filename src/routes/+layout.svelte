@@ -12,6 +12,8 @@
 	import { fly } from 'svelte/transition';
 	//@ts-ignore
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	//@ts-ignore
+	import { Analytics } from "@vercel/analytics/svelte";
 
 	injectSpeedInsights();
 
