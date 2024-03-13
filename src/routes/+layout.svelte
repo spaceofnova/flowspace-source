@@ -10,11 +10,16 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 
 	import { fly } from 'svelte/transition';
+	//@ts-ignore
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+	injectSpeedInsights();
+
 	export let data;
 </script>
 
 <SignedIn let:user>
-	{#if (user?.publicMetadata.previewProgram)}
+	{#if user?.publicMetadata.previewProgram}
 		<Navbar />
 		{#key data.url}
 			<main

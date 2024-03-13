@@ -36,6 +36,7 @@
 	"type": "module",
 	"dependencies": {
 		"@clerk/themes": "^1.7.9",
+		"@vercel/speed-insights": "^1.0.10",
 		"daisyui": "^4.7.2",
 		"theme-change": "^2.5.0"
 	}
