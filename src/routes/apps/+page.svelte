@@ -13,7 +13,6 @@
 				description: game.description,
 			};
 		});
-		console.log(gameList);
 	});
 
 	
