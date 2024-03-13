@@ -1,5 +1,24 @@
 <script>
+	//@ts-nocheck
 	export let data;
+
+	import { onMount } from 'svelte';
+
+	let recents = JSON.parse(localStorage.getItem("recents"));
+
+	onMount(() => {
+		if (recents) {
+			if (recents.length > 5) {
+				recents.shift();
+			}
+			if (!recents.includes(data.game.name)) {
+				recents.push(data.game.name);
+			}
+		} else {
+			recents = [data.game.name];
+		}
+		localStorage.setItem("recents", JSON.stringify(recents));
+	});
 </script>
 
 <div class="w-full h-full flex flex-row">
