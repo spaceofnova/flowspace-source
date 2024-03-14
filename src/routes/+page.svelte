@@ -1,5 +1,5 @@
 <script>
-    import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+    import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
     import { onMount } from 'svelte';
 
     let greeting = '';
@@ -17,6 +17,6 @@
     });
 </script>
 
-<SignedIn let:user>
-    <h1 class="text-4xl font-bold">{greeting}, <br> {user?.firstName}!</h1>
-</SignedIn>
+<ClerkLoaded let:clerk>
+    <h1 class="text-4xl font-bold">{greeting}, <br> {clerk?.user?.firstName}!</h1>
+</ClerkLoaded>

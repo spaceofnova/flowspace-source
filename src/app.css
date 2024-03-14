@@ -15,10 +15,10 @@
 }
 
 .cl-card.🔒️ {
-  height: 45rem;
-  text-align: left;
+  height: calc(100vh - 7rem);
   font-family: 'Roboto', sans-serif;
   box-shadow: none;
+  
 }
 
 .cl-navbar.🔒️ {
