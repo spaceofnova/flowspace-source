@@ -32,7 +32,6 @@
 			>
 				<slot />
 			</main>
-			{console.log()}
 		{/key}
 	{:else}
 		<h1 class="text-2xl font-bold">
