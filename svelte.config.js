@@ -13,11 +13,11 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
 		csp: {
-            mode: 'auto', // 'hash' for production
+            mode: 'hash', // 'hash' for production
             directives: {
                 'default-src': ['self'],
                 'script-src': ['self', 'va.vercel-scripts.com'],
-                'style-src': ['self', 'nonce-%sveltekit.nonce%', 'fonts.googleapis.com'],
+                'style-src': ['self', 'fonts.googleapis.com'],
                 'connect-src': ['self', 'https://heroic-pipefish-74.clerk.accounts.dev', '*.flowspace.app'],
 				"img-src": ["self", "data:", "img.clerk.com", 'files-novaspace.replit.app'],
 				'worker-src': ['self', 'blob:'],
