@@ -3,19 +3,18 @@
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	let notif = {
 		show: false,
-		message: ''
+		message: '',
+		type: ''
 	};
 	let isEditing = false;
-
-	async function handleSave(user) {
+	async function handleSave(user, file) {
 		// Save the user's changes
 		const firstName = document.querySelector('input[name="firstName"]').value;
 		const lastName = document.querySelector('input[name="lastName"]').value;
-		const pfpFile = document.querySelector('input[name="pfpUpload"]').files[0];
 		const bio = document.querySelector('textarea[name="bio"]').value;
 
 		// Process the data here
-		if (pfpFile) await user.setProfileImage({ file: pfpFile });
+
 		if (bio.length > 0)
 			await user.update({
 				unsafeMetadata: {
@@ -24,19 +23,87 @@
 			});
 		await user.update({ firstName: firstName, lastName: lastName });
 		isEditing = false;
+		notif.message = 'Profile updated!';
 		notif.show = true;
 		setTimeout(() => {
 			notif.show = false;
 		}, 3000);
 	}
+	async function pfpsave(user, file) {
+		if (file) {
+			try {
+				await user.setProfileImage({ file: file });
+				notif.message = 'Profile picture updated!';
+				notif.type = 'success';
+				notif.show = true;
+				setTimeout(() => {
+					notif.show = false;
+				}, 3000);
+			} catch (e) {
+				console.error(e);
+				notif.message = 'Error updating profile picture';
+				notif.type = 'error';
+				notif.show = true;
+				setTimeout(() => {
+					notif.show = false;
+				}, 3000);
+			}
+		}
+	}
+
+	import { ImageInput } from 'svelte-image-input';
+
+	let url = '';
+	let width = 400;
+	let height = 408;
+	let quality = 0.7;
+	let realTime = true;
+	let crossOrigin = 'anonymous';
+	let classes = 'rounded-full m-auto';
+	let showCompressedResult = false;
 </script>
+
+<dialog id="my_modal_1" class="modal">
+	<div class="modal-box">
+		<ImageInput
+			bind:url
+			{width}
+			{height}
+			{quality}
+			{realTime}
+			{crossOrigin}
+			{classes}
+			{showCompressedResult}
+		/>
+		<SignedIn let:user>
+			<button
+				on:click={async () => {
+					await pfpsave(user, url);
+					document.querySelector('#my_modal_1').close();
+				}}>Save</button
+			>
+		</SignedIn>
+		<div class="modal-action">
+			<form method="dialog">
+				<!-- if there is a button in form, it will close the modal -->
+				<button class="btn">Close</button>
+			</form>
+		</div>
+	</div>
+</dialog>
 
 <div class="flex flex-row">
 	<SignedIn let:user>
 		{#if !isEditing}
-			<div class="card w-96 bg-base-300 h-full">
+			<div
+				class={`card w-96 bg-base-300 h-full ${user.publicMetadata.hasPro ? 'border-4 border-primary/50' : ''}`}
+			>
 				<div class="card-body">
-					<img src={user.imageUrl} class="rounded-full w-24 aspect-square" alt="Profile PFP" />
+					<img
+						src={user.imageUrl}
+						class="rounded-full w-24 aspect-square hover:after:content-['Hovering'] hover:after:bg-base-300/15"
+						alt="Profile PFP"
+					/>
 					<h2 class="card-title inline-flex">
 						{user.firstName}
 						{user.lastName}
@@ -66,8 +133,7 @@
 				<div class="card-body">
 					<div class="form-control">
 						<!-- svelte-ignore a11y-label-has-associated-control -->
-						<label class="label">Profile Picture</label>
-						<input type="file" accept="image/png, image/jpeg, image/jpg" name="pfpUpload" />
+						<button class="btn" onclick="my_modal_1.showModal()">Change Profile Picture</button>
 					</div>
 					<div class="form-control">
 						<!-- svelte-ignore a11y-label-has-associated-control -->
@@ -106,7 +172,7 @@
 
 <div
 	role="alert"
-	class={`alert alert-success absolute max-w-fit right-4 transition duration-250 ease-in-out -bottom-20 ${notif.show ? '-translate-y-24 opacity-1' : 'translate-y-0 opacity-0'}`}
+	class={`alert alert-${notif.type} absolute max-w-fit right-4 transition duration-250 ease-in-out -bottom-20 ${notif.show ? '-translate-y-24 opacity-1' : 'translate-y-0 opacity-0'}`}
 >
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -120,5 +186,5 @@
 			d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 		/></svg
 	>
-	<span>Profile Updated!</span>
+	<span>{notif.message}</span>
 </div>
