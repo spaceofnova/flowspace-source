@@ -1,12 +1,9 @@
 <script>
 	// @ts-nocheck
 	import ThemeChange from './ThemeChange.svelte';
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignOutButton from 'clerk-sveltekit/client/SignOutButton.svelte';
-	import UserProfile from 'clerk-sveltekit/client/UserProfile.svelte';
-	import UserEdit from './UserProfile.svelte';
 </script>
 
 <div class="navbar bg-base-300 z-10 p-0 pl-2 pr-2 fixed bottom-0 md:relative">
@@ -51,6 +48,7 @@
 						</div>
 					</div>
 					<p class="hidden md:block">{user?.username}</p>
+					{#if user.publicMetadata.hasPro}<div class="badge badge-neutral">Pro</div>{/if}
 				</SignedIn>
 			</div>
 			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->

@@ -1,7 +1,7 @@
 <script lang="ts">
 	//@ts-nocheck
 	import { onMount } from 'svelte';
-	
+
 	let gameList = [];
 	onMount(async () => {
 		const res = await fetch('https://api.flowspace.app/get/games').then((r) => r.json());
@@ -10,16 +10,14 @@
 				id: game.id,
 				name: game.name,
 				img: game.img,
-				description: game.description,
+				description: game.description
 			};
 		});
 	});
-
-	
 </script>
 
-<div class="grid gap-4 mt-2 ml-2">
-	<h1 class="text-4xl font-bold">All Apps</h1>
+<h1 class="text-4xl font-bold">All Apps</h1>
+<div class="grid grid-cols-5 grid-rows-6 gap-12 mt-2 ml-2">
 	{#each gameList as { id, name, img, description }}
 		<div class="card card-side bg-base-300 shadow-xl w-96 h-36 rounded-xl">
 			<figure><img class="aspect-square w-32 ml-2 rounded-md" src={img} alt="Movie" /></figure>
