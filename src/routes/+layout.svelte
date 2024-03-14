@@ -35,7 +35,7 @@
 		{/key}
 	{:else}
 		<h1 class="text-2xl font-bold">
-			You are not part of the preview program. Switch to an account that does to continue.
+			You are not part of the preview program. Switch to an account that is to continue.
 		</h1>
 		<SignOutButton class="btn" />
 	{/if}
