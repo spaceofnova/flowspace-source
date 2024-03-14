@@ -18,7 +18,7 @@ const config = {
                 'default-src': ['self'],
                 'script-src': ['self', 'va.vercel-scripts.com'],
                 'style-src': ['self', 'nonce-%sveltekit.nonce%', 'fonts.googleapis.com'],
-                'connect-src': ['self', 'https://heroic-pipefish-74.clerk.accounts.dev', 'api.flowspace.app'],
+                'connect-src': ['self', 'https://heroic-pipefish-74.clerk.accounts.dev', '*.flowspace.app'],
 				"img-src": ["self", "data:", "img.clerk.com", 'files-novaspace.replit.app'],
 				'worker-src': ['self', 'blob:'],
 				"frame-src": ["self", "https://heroic-pipefish-74.clerk.accounts.dev", 'https://gsctbirdnthlooylyrsakgtnquyrydsz.replit.app/'],
