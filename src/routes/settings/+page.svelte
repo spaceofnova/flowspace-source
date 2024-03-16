@@ -1,5 +1,6 @@
 <script>
 	//@ts-nocheck
+	import FeatureFlags from '$lib/featureFlags.svelte';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	let notif = {
 		show: false,
@@ -51,7 +52,7 @@
 		}
 	}
 
-	import { ImageInput } from 'svelte-image-input';
+	import { ImageInput } from 'image-input-reborn';
 
 	let url = '';
 	let width = 400;
@@ -168,6 +169,7 @@
 			</div>
 		{/if}
 	</SignedIn>
+	<FeatureFlags ></FeatureFlags>
 </div>
 
 <div
@@ -188,3 +190,5 @@
 	>
 	<span>{notif.message}</span>
 </div>
+
+

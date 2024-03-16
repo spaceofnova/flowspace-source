@@ -26,7 +26,7 @@
 		<Navbar />
 		{#key data.url}
 			<main
-				class="w-full h-[calc(100%-4rem)] p-4"
+				class="w-full h-[calc(100%-4rem)] p-4 relative"
 				in:fly={{ x: -100, duration: 200, delay: 200 }}
 				out:fly={{ x: 100, duration: 200 }}
 			>
