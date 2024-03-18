@@ -29,7 +29,7 @@
 		frameborder="0"
 	></iframe>
 	<div>
-		<div class="card card-compact bg-base-300 shadow-md rounded-xl m-4 mt-0 mr-0 min-w-56">
+		<div class="card card-compact bg-base-300 shadow-md rounded-xl m-4 mt-0 mr-0 min-w-56 max-w-96">
 			<div class="card-body">
 				<h2 class="card-title text-4xl">{data.game.name}</h2>
 				<p>{data.game.descriptionLong || 'No description found 🤷‍♂️'}</p>
