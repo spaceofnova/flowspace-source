@@ -14,6 +14,7 @@
 
 	import SignIn from 'clerk-sveltekit/client/SignIn.svelte';
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
+	import { onMount } from 'svelte';
 
 	injectSpeedInsights();
 	inject();
