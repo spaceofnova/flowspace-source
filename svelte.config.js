@@ -7,7 +7,7 @@ const config = {
 
 	kit: {
 		files: {
-			serviceWorker: 'src/my-sw.js' // or `src/my-sw.ts`
+			serviceWorker: 'src/service-worker.js' // or `src/my-sw.ts`
 		},
 		adapter: adapter()
 	}
