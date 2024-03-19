@@ -36,7 +36,7 @@
 							fontSmoothing: 'antialiased',
 							fontWeight: {normal: 500, medium: 600, bold: 700},
 							borderRadius: '1rem',
-							spacingUnit: '0.rem',
+							spacingUnit: '0.8rem',
 							colorBackground: 'rgba(0,0,0,0.25)',
 						}
 					}} />
