@@ -1,0 +1,1 @@
+<h1 class="text-3xl font-bold">Recent Blogs</h1>

@@ -19,7 +19,9 @@
 
 <ClerkLoaded let:clerk>
 	<h1 class="text-4xl font-bold">{greeting}, {clerk?.user?.firstName}!</h1>
-	<FeatureFlags isEnabled="bentoHomeScreen">
-		<GridPanel />
+	<FeatureFlags let:getFlag>
+		{#if getFlag('bentoHomeScreen')}
+			<GridPanel />
+		{/if}
 	</FeatureFlags>
 </ClerkLoaded>

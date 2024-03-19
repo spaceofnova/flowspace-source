@@ -7,7 +7,7 @@
 	}
 </script>
 
-<div class="w-80 absolute right-0 top-0 z-10 bg-base-300 m-4">
+<div class="w-80 absolute right-0 top-0 bg-base-300 m-4">
 	<h3>Customization Panel</h3>
 
 	<h4>Select Color:</h4>

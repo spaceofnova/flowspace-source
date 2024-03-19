@@ -13,14 +13,3 @@
 .btn:active {
 	transition: transform 0.1s !important;
 }
-
-.cl-card.🔒️ {
-  height: calc(100vh - 6rem);
-  font-family: 'Roboto', sans-serif;
-  box-shadow: none;
-  margin-left: 1rem;
-}
-
-.cl-navbar.🔒️ {
-	display: none;
-}

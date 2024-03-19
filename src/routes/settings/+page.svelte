@@ -169,7 +169,7 @@
 			</div>
 		{/if}
 	</SignedIn>
-	<FeatureFlags ></FeatureFlags>
+	<FeatureFlags mode="editor"/>
 </div>
 
 <div
