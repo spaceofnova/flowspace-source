@@ -17,7 +17,12 @@
 		frameborder="0"
 	></iframe>
 	<div>
-		<div class="card max-w-96 ml-4 p-4 bg-base-300">
+		<a href="/apps" class="btn btn-primary ml-4 mt-4 w-full h-full shadow-md">{"<-"}</a>
+	</div>
+</div>
+
+
+<!-- <div class="card max-w-96 ml-4 p-4 bg-base-300">
 			<h2 class="card-title text-4xl">{data.game.name}</h2>
 			<p>{data.game.descriptionLong || 'No description found 🤷‍♂️'}</p>
 			<div class="divider"></div>
@@ -34,7 +39,4 @@
 			<div class="card-actions justify-end mt-6 w-full">
 				<button class="btn btn-primary w-full">Add to Favorites</button>
 			</div>
-		</div>
-		<a href="/apps" class="btn btn-primary ml-4 mt-4 w-[calc(100%-1rem)] shadow-md">Back to Apps</a>
-	</div>
-</div>
+		</div> -->
