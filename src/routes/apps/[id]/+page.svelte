@@ -10,15 +10,15 @@
 </script>
 
 <div class="w-full h-full flex flex-row">
+	<div>
+		<a href="/apps" class="btn btn-neutral w-full h-full shadow-md">{"<-"}</a>
+	</div>
 	<iframe
 		class="w-11/12 aspect-video rounded-2xl shadow-xl border-2 border-white/10 bg-base-300"
 		src={data.game.url}
 		title={data.game.name}
 		frameborder="0"
 	></iframe>
-	<div>
-		<a href="/apps" class="btn btn-primary ml-4 mt-4 w-full h-full shadow-md">{"<-"}</a>
-	</div>
 </div>
 
 
