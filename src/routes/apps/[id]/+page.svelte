@@ -11,7 +11,7 @@
 
 <div class="w-full h-full flex flex-row">
 	<iframe
-		class="w-11/12 aspect-video rounded-2xl shadow-xl border-2 border-white/10 bg-base-300"
+		class="h-full aspect-video rounded-2xl shadow-xl border-2 border-white/10 bg-base-300"
 		src={data.game.url}
 		title={data.game.name}
 		frameborder="0"
@@ -32,7 +32,7 @@
 				{/if}
 			</div>
 			<div class="card-actions justify-end mt-6 w-full">
-				<button class="btn btn-primary w-full">Add to Favorites</button>
+				<button class="btn btn-primary w-full">Add to Library</button>
 			</div>
 		</div>
 		<a href="/apps" class="btn btn-primary ml-4 mt-4 w-[calc(100%-1rem)] shadow-md">Back to Apps</a>

@@ -14,7 +14,6 @@
 
 	import SignIn from 'clerk-sveltekit/client/SignIn.svelte';
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
-	import { onMount } from 'svelte';
 
 	injectSpeedInsights();
 	inject();
@@ -32,15 +31,17 @@
 		>
 			<SignedOut>
 				<div class="w-full h-full p-4 relative grid place-items-center">
-					<SignIn appearance={{
-						variables: {
-							fontSmoothing: 'antialiased',
-							fontWeight: {normal: 500, medium: 600, bold: 700},
-							borderRadius: '1rem',
-							spacingUnit: '0.8rem',
-							colorBackground: 'rgba(0,0,0,0.25)',
-						}
-					}} />
+					<SignIn
+						appearance={{
+							variables: {
+								fontSmoothing: 'antialiased',
+								fontWeight: { normal: 500, medium: 600, bold: 700 },
+								borderRadius: '1rem',
+								spacingUnit: '0.8rem',
+								colorBackground: 'rgba(0,0,0,0.25)'
+							}
+						}}
+					/>
 				</div>
 			</SignedOut>
 			<SignedIn>
