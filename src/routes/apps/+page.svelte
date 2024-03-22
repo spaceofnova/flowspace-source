@@ -1,12 +1,23 @@
 <script lang="ts">
 	//@ts-nocheck
 	import { onMount } from 'svelte';
-	export let data:object;
+	let gameList = [];
+	onMount(async () => {
+		const res = await fetch('https://api.flowspace.app/get/games').then((r) => r.json());
+		gameList = res.map((game) => {
+			return {
+				id: game.id,
+				name: game.name,
+				img: game.img,
+				description: game.description
+			};
+		});
+	});
 </script>
 
 <h1 class="text-4xl font-bold">All Apps</h1>
 <div class="grid grid-cols-1 grid-rows-6 mt-2 ml-2 gap-2">
-	{#each data as { id, name, img, description }}
+	{#each gameList as { id, name, img, description }}
 		<div class="card card-side bg-base-300 shadow-xl w-96 h-28 rounded-xl">
 			<figure><img class="aspect-square w-24 ml-2 rounded-md" src={img} alt="Movie" /></figure>
 			<div class="card-body p-3">
