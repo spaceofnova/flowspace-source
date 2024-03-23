@@ -2,15 +2,15 @@
 <html lang="en" style="height: 100%; overflow: hidden">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<meta name="apple-mobile-web-app-title" content="Flowspace" />
-		<link rel="apple-touch-icon" href="%sveltekit.assets%/images/icons/icon-152x152.png" />
-		<link rel="manifest" href="/%sveltekit.assets%/manifest.json" />
+		<link rel="apple-touch-icon" href="/images/icons/icon-152x152.png" />
+		<link rel="manifest" href="/manifest.json" />
 		<title>Flowspace</title>
 		%sveltekit.head%
 	</head>
@@ -19,7 +19,7 @@
 		<script>
 			if ("serviceWorker" in navigator) {
 			  window.addEventListener("load", () => {
-				navigator.serviceWorker.register("%sveltekit.assets%/service-worker.js")
+				navigator.serviceWorker.register("/service-worker.js")
 			  });
 			}
 		  </script>
