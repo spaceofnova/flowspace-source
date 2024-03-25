@@ -1,4 +1,5 @@
 <script lang="ts">
+
 	import GridPanel from '$lib/GridPanel.svelte';
 	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
 	import FeatureFlags from '$lib/featureFlags.svelte';

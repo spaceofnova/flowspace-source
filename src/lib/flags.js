@@ -6,5 +6,9 @@ export const flags = {
     newProfilePopup: {
         name: "New Profile Popup",
         desc: "Test the new profile popup",
+    },
+    newNavigator: {
+        name: "Sidebar Navigator",
+        desc: "Test the new sidebar natigation",
     }
 }

@@ -3,37 +3,41 @@
 	import FeatureFlags from '$lib/featureFlags.svelte';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignOutButton from 'clerk-sveltekit/client/SignOutButton.svelte';
+
+	import Coin from '$lib/coin.svelte';
 </script>
 
 <SignedIn let:user>
-	<FeatureFlags let:getFlag>
-		{#if getFlag('newProfilePopup')}
-			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="btn pr-2 pl-2 hover:btn-primary">
-					<div class="avatar">
-						<div class="w-8 rounded-full">
-							<img alt="Tailwind CSS Navbar component" src={user?.imageUrl} />
-						</div>
-					</div>
-					<p class="hidden md:block">{user?.username}</p>
-					{#if user.publicMetadata.hasPro}<div class="badge badge-neutral">Pro</div>{/if}
+	<div class="dropdown dropdown-end">
+		<div tabindex="0" role="button" class="btn pr-2 pl-2 hover:btn-primary">
+			<div class="avatar">
+				<div
+					class={`w-8 rounded-full ${user.publicMetadata.hasPro ? 'ring-2 ring-accent' : ''} ring-offset-base-100 ring-offset-2`}
+				>
+					<img alt="Tailwind CSS Navbar component" src={user?.imageUrl} />
 				</div>
-				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-				<div class="dropdown-content w-48 h-96 bg-base-300 shadow">Dropdown Test</div>
 			</div>
-		{:else}
-			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="btn pr-2 pl-2 hover:btn-primary">
-					<div class="avatar">
-						<div class="w-8 rounded-full">
-							<img alt="Tailwind CSS Navbar component" src={user?.imageUrl} />
-						</div>
+			<p class="hidden md:block">{user?.username}</p>
+			<div class="badge badge-neutral pl-1 pr-1 gap-1">
+				<Coin />{user.publicMetadata.coins ? user.publicMetadata.coins : '0'}
+			</div>
+		</div>
+		<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+		<FeatureFlags let:getFlag>
+			{#if getFlag('newProfilePopup')}
+				<div
+					class="-translate-y-[160%] md:-translate-y-0 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-80 gap-2"
+				>
+					<div class="text-xl font-bold">
+						Hi, {user?.username}!
 					</div>
-					<p class="hidden md:block">{user?.username}</p>
-					{#if user.publicMetadata.hasPro}<div class="badge badge-neutral">Pro</div>{/if}
+					<div>
+						<span class="inline-flex">
+							You have {user.publicMetadata.coins ? user.publicMetadata.coins : '0'} coins.
+						</span>
+					</div>
 				</div>
-				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-
+			{:else}
 				<ul
 					tabindex="0"
 					class="-translate-y-[160%] md:-translate-y-0 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52 gap-2"
@@ -51,7 +55,7 @@
 						/>
 					</li>
 				</ul>
-			</div>
-		{/if}
-	</FeatureFlags>
+			{/if}
+		</FeatureFlags>
+	</div>
 </SignedIn>

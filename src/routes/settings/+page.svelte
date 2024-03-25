@@ -56,7 +56,7 @@
 
 	let url = '';
 	let width = 400;
-	let height = 408;
+	let height = 400;
 	let quality = 0.7;
 	let realTime = true;
 	let crossOrigin = 'anonymous';
