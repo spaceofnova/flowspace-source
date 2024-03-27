@@ -4,4 +4,3 @@ export function load({ url }) {
 	};
 }
 
-export const prerender = true;
