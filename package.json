@@ -43,7 +43,7 @@
 		"@clerk/themes": "^1.7.9",
 		"@vercel/analytics": "^1.2.2",
 		"@vercel/speed-insights": "^1.0.10",
-		"daisyui": "^4.7.2",
+		"daisyui": "^4.9.0",
 		"flowspace-addons": "^0.0.1",
 		"image-input-reborn": "^0.1.5",
 		"svelte-grid-extended": "^1.1.4",
